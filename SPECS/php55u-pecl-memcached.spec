@@ -21,13 +21,6 @@ BuildRequires: %{php_base}-devel, %{php_base}-pear
 BuildRequires: libmemcached10-devel >= 1.0.13
 BuildRequires: zlib-devel
 
-# This is EPEL-5 specific
-Requires:     %{php_base}-zend-abi = %{php_zendabiver}
-Provides:     %{real_name} = %{version}-%{release}
-Provides:     php-pecl(%{pecl_name}) = %{version}-%{release}
-Provides:     %{php_base}-pecl(%{pecl_name}) = %{version}-%{release}
-
-
 %description
 This extension uses libmemcached library to provide API for communicating
 with memcached servers.
