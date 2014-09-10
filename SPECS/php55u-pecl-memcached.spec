@@ -7,19 +7,17 @@
 
 Summary:      Extension to work with the Memcached caching daemon
 Name:         %{php_base}-pecl-memcached
-Version:      2.1.0
-Release:      4.ius%{?dist}
+Version:      2.2.0
+Release:      1.ius%{?dist}
 License:      PHP
 Group:        Development/Languages
 URL:          http://pecl.php.net/package/%{pecl_name}
-
 Source:       http://pecl.php.net/get/%{pecl_name}-%{version}.tgz
-
-BuildRoot:    %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-
+%{?el5:BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)}
 BuildRequires: %{php_base}-devel, %{php_base}-pear
 BuildRequires: libmemcached10-devel >= 1.0.13
 BuildRequires: zlib-devel
+
 
 %description
 This extension uses libmemcached library to provide API for communicating
@@ -69,12 +67,11 @@ EOF
 %{__install} -m 644 ../package.xml %{buildroot}%{pecl_xmldir}/%{name}.xml
 
 
-%clean
-%{__rm} -rf %{buildroot}
+%{?el5:%clean}
+%{?el5:%{__rm} -rf %{buildroot}}
 
 
 %files
-%defattr(-, root, root, -)
 %doc %{pecl_name}-%{version}/{CREDITS,LICENSE,README.markdown,ChangeLog}
 %config(noreplace) %{_sysconfdir}/php.d/%{pecl_name}.ini
 %{php_extdir}/%{pecl_name}.so
@@ -82,6 +79,9 @@ EOF
 
 
 %changelog
+* Wed Sep 10 2014 Carl George <carl.george@rackspace.com> - 2.2.0-1.ius
+- Latest upstream
+
 * Fri Dec 06 2013 Ben Harper <ben.harper@rackspace.com> -  2.1.0-4.ius
 - porting from php54-pecl-memcached
 
