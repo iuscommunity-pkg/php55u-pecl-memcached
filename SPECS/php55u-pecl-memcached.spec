@@ -9,7 +9,7 @@
 Summary:      Extension to work with the Memcached caching daemon
 Name:         %{php_base}-pecl-%{pecl_name}
 Version:      2.2.0
-Release:      2.ius%{?dist}
+Release:      3.ius%{?dist}
 # memcached is PHP, FastLZ is MIT
 License:      PHP and MIT
 Group:        Development/Languages
@@ -233,6 +233,10 @@ exit $ret
 
 
 %changelog
+* Fri Oct 10 2014 Carl George <carl.george@rackspace.com> - 2.2.0-3.ius
+- Conflict with stock package
+- Provide stock package
+
 * Tue Sep 30 2014 Carl George <carl.george@rackspace.com> - 2.2.0-2.ius
 - Sync with EPEL7 package
 - add numerical prefix to extension configuration file
