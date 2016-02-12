@@ -224,6 +224,7 @@ exit $ret
 
 
 %files
+%{?_licensedir:%license NTS/LICENSE}
 %doc %{pecl_docdir}/%{pecl_name}
 %doc %{pecl_testdir}/%{pecl_name}
 %{pecl_xmldir}/%{name}.xml
@@ -240,6 +241,7 @@ exit $ret
 * Fri Feb 12 2016 Carl George <carl.george@rackspace.com> - 2.2.0-4.ius
 - Change minimum libmemcached version to 1.0.10 (upstream GH#25)
 - Clean up libmemcached build requirement logic
+- Mark LICENSE file with %%license when possible
 
 * Fri Oct 10 2014 Carl George <carl.george@rackspace.com> - 2.2.0-3.ius
 - Conflict with stock package
